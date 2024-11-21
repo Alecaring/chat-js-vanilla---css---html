@@ -1,0 +1,19 @@
+[
+    {
+        "id": 1,
+        "name": "Lycia Smith",
+        "lastMessage": "Hi, how are you?",
+        "messages": [
+            {
+                "sender": "Lycia Smith",
+                "time": "10:00 AM",
+                "content": "Hi, how are you?"
+            },
+            {
+                "sender": "you",
+                "time": "",
+                "content": "I'm fine, thanks!"
+            }
+        ]
+    }
+]
