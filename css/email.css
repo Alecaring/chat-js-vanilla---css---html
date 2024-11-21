@@ -1,0 +1,40 @@
+/* contenitore principale */
+main {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* stile per la litsa della conversazione */
+#conversation-container {
+    flex: 1;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: inset 8px 8px 16px #d1d1d1, inset -8px -8px 16px #ffffff;
+    padding: 15px;
+}
+
+/* stile per i dettagli della conversazione */
+.conversation {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.conversation:hover {
+    background-color: #f0f0f0;
+}
+
+/* singolo messaggio */
+.message {
+    margin-bottom: 10px;
+}
+
+.message .sender {
+    font-weight: bold;
+}
+
+.message .time {
+    font-size: .8rem;
+    color: #999;
+}
