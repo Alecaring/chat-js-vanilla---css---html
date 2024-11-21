@@ -15,3 +15,39 @@
                 "content": "I'm fine, thanks!"
             }
         ]
+    },
+    {
+        "id": 2,
+        "name": "Jasmine Smith",
+        "lastMessage": "Hi, how are you?",
+        "messages": [
+            {
+                "sender": "Jasmine Smith",
+                "time": "10:00 AM",
+                "content": "Hi, how are you?"
+            },
+            {
+                "sender": "you",
+                "time": "10:10 AM",
+                "content": "I'm fine, thanks!"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Silvia Smith",
+        "lastMessage": "Hi, how are you?",
+        "messages": [
+            {
+                "sender": "Silvia Smith",
+                "time": "10:00 AM",
+                "content": "Hi, how are you?"
+            },
+            {
+                "sender": "you",
+                "time": "10:10 AM",
+                "content": "I'm fine, thanks!"
+            }
+        ]
+    }
+]
