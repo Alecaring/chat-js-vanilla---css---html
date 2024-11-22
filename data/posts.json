@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "author": "Luigi Verdi",
+        "content": "hello Italian",
+        "image": "assets/images/image1.jpeg",
+        "liked": false,
+        "comments": []
+    },
+    {
+        "id": 2,
+        "author": "Mario Bianchi",
+        "content": "hello Franch",
+        "image": "assets/images/image1.jpeg",
+        "liked": false,
+        "comments": []
+    },
+    {
+        "id": 1,
+        "author": "Valerio Rossi",
+        "content": "hello German",
+        "image": "assets/images/image1.jpeg",
+        "liked": false,
+        "comments": []
+    }
+]

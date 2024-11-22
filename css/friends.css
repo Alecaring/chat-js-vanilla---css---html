@@ -1,0 +1,30 @@
+main {
+    padding: 20px;
+}
+
+#search {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+#friends-list {
+    list-style: none;
+    padding: 0;
+}
+
+.friend {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: inset 8px 8px 16px #d1d1d1, inset -8px -8px 16px #ffffff;
+    margin-bottom: 10px;
+}
+
+.friend:hover {
+    background-color: #f0f0f0;
+}
