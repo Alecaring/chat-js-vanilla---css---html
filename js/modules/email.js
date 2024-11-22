@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return res.json();
     })
     .then(conversations => {
+        
         //  mostra la lista delle conversazioni
         conversations.forEach(conversation => {
             if (!conversation.name || !conversation.lastMessage) {
