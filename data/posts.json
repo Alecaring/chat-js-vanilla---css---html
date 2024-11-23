@@ -3,15 +3,15 @@
         "id": 1,
         "author": "Luigi Verdi",
         "content": "hello Italian",
-        "image": "assets/images/image1.jpeg",
+        "image": "assets/images/1.webp",
         "liked": false,
-        "comments": []
+        "comments": ["hwwww"]
     },
     {
         "id": 2,
         "author": "Mario Bianchi",
         "content": "hello Franch",
-        "image": "assets/images/image2.webp",
+        "image": "assets/images/2.webp",
         "liked": false,
         "comments": []
     },
@@ -19,7 +19,23 @@
         "id": 1,
         "author": "Valerio Rossi",
         "content": "hello German",
-        "image": "assets/images/image3.jpg",
+        "image": "assets/images/3.webp",
+        "liked": false,
+        "comments": []
+    },
+    {
+        "id": 1,
+        "author": "Valerio Rossi",
+        "content": "hello German",
+        "image": "assets/images/4.webp",
+        "liked": false,
+        "comments": []
+    },
+    {
+        "id": 1,
+        "author": "Valerio Rossi",
+        "content": "hello German",
+        "image": "assets/images/5.webp",
         "liked": false,
         "comments": []
     }

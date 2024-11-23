@@ -1,6 +1,12 @@
 import { createElement } from "../utils/dom.js";
 import { renderConversationDetails } from "./conversationDetails.js";
 
+window.addEventListener('beforeunload', function() {
+    if (webSocket) {
+      webSocket.close();  // Chiudi la connessione WebSocket quando la pagina sta per essere abbandonata
+    }
+  });
+
 window.onload = function () {
     document.getElementById('loader').style.display = 'none';
     document.getElementById('appEmail').style.display = 'block';

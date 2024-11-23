@@ -1,5 +1,11 @@
 import { createElement } from "../utils/dom.js";
 
+window.addEventListener('beforeunload', function() {
+    if (webSocket) {
+      webSocket.close();  // Chiudi la connessione WebSocket quando la pagina sta per essere abbandonata
+    }
+  });
+
 window.onload = function () {
     document.getElementById('loader').style.display = 'none';
     document.getElementById('appEmail').style.display = 'block';
@@ -57,10 +63,4 @@ console.log(friends);
         const filteredFriends = friends.filter(friend =>
             friend.name.toLowerCase().includes(searchQuery)
         );
-        // Aggiorna la lista con i risultati filtrati
-        renderFriendList(filteredFriends);
-    });
-
-    // Render iniziale della lista di amici
-    renderFriendList(friends);
-});
+        // Aggio

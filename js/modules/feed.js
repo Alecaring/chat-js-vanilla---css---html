@@ -1,6 +1,16 @@
 import { createElement } from "../utils/dom.js";
 
-// caricamneto pagina
+window.addEventListener('pageshow', function(event) {
+  if (event.persisted) {
+    // Se la pagina è stata ripristinata dalla cache
+    if (!webSocket || webSocket.readyState !== WebSocket.OPEN) {
+      // Riapri la connessione WebSocket
+      openWebSocketConnection();
+    }
+  }
+});
+
+// Caricamento pagina
 window.onload = function () {
   document.getElementById('loader').style.display = 'none';
   document.getElementById('appEmail').style.display = 'block';
@@ -17,10 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-
-
-
-
 /**
  * Renderizza un post all'interno del feed
  * @param {HTMLElement} container - Il contenitore dove inserire il post
@@ -28,23 +34,34 @@ document.addEventListener("DOMContentLoaded", () => {
  */
 function renderPost(container, post) {
   const postElement = createElement("div", { class: "post" }, [
-    createElement("h3", {}, [post.author]),
+    createElement("h2", {}, [post.author]),
     createElement("p", {}, [post.content]),
   ]);
 
+  const containerCanvasImg = createElement('div', { class: "container-canvas-img" }, []);
+  postElement.appendChild(containerCanvasImg);
+
   // Aggiungi immagine se presente
   if (post.image) {
-    const img = createElement("img", { src: post.image, class: "post-image" });
-    postElement.appendChild(img);
+    const img = createElement("img", {
+      src: post.image,
+      class: "post-image",
+      alt: `author:${post.author}, content:${post.content}`,
+    });
+    containerCanvasImg.appendChild(img);
   }
 
   // Crea un canvas per le animazioni
   const canvas = createElement("canvas", { class: "bubbles-canvas" });
   const ctx = canvas.getContext("2d");
-  postElement.appendChild(canvas);
+  containerCanvasImg.appendChild(canvas);
 
   // Aggiungi pulsante "Mi piace"
-  const likeButton = createElement("button", { class: "like-button" }, ["❤"]);
+  const likeButton = createElement("button", {
+    class: "like-button",
+    id: "like-button",
+    "aria-label": "Submit your like for post"
+  }, ["❤"]);
   likeButton.classList.add(post.liked ? "liked" : "not-liked");
 
   likeButton.addEventListener("click", () => {
@@ -74,28 +91,47 @@ function renderPost(container, post) {
  */
 function createCommentsSection(post) {
   const commentsContainer = createElement("div", { class: "comments-section" });
-  const commentTopContainer = createElement('div', {class: "comment-top-container"}, []);
+  const commentTopContainer = createElement('div', { class: "comment-top-container" }, []);
   const commentsList = createElement("div", { class: "comments-list" });
   const commentsTitle = createElement("h4", {}, ["Commenti"]);
 
   // Popola inizialmente la lista dei commenti
-  post.comments.forEach(comment => {
-    commentsList.appendChild(createCommentElement(comment));
-    console.log(comment);
-    
-  });
+  post.comments.length > 0 ?
+    (
+      post.comments.forEach(comment => {
+        commentsList.appendChild(createCommentElement(comment));
+      })
+    ) : (
+      commentsList.appendChild(
+        createElement('div', { class: "comment-empty" }, ["Ancora nessun Commento"])
+      )
+    );
 
-  // Aggiungi pulsante "Espandi commenti" specifico
-  const expandCommentsButton = createElement("button", { class: "expand-comments-button" }, ["Espandi Commenti"]);
+  const emptyComment = commentsList.querySelector(".comment-empty");
+
+  // Aggiungi pulsante "Espandi commenti"
+  const expandCommentsButton = createElement("button", {
+    class: "expand-comments-button",
+    id: "toggle-expand-comment",
+    "aria-label": "Toggle expand to read comments"
+  }, ["Espandi Commenti"]);
+
+  if (emptyComment) {
+    expandCommentsButton.style.opacity = "0";
+  } else {
+    expandCommentsButton.style.opacity = "1";
+  }
+
   expandCommentsButton.addEventListener("click", () => {
     const isExpanded = commentsList.style.maxHeight === "none";
     commentsList.style.maxHeight = isExpanded ? "150px" : "none"; // Toggle
     expandCommentsButton.textContent = isExpanded ? "Espandi Commenti" : "Comprimi Commenti";
   });
 
-  const commentForm = createCommentForm(post, commentsList);
+  commentTopContainer.append(commentsTitle, expandCommentsButton);
 
-  commentTopContainer.append(commentsTitle, expandCommentsButton)
+  const commentForm = createCommentForm(post, commentsList, expandCommentsButton);
+
   commentsContainer.append(commentTopContainer, commentsList, commentForm);
 
   return commentsContainer;
@@ -109,11 +145,9 @@ function createCommentsSection(post) {
 function createCommentElement(comment) {
   return createElement("div", { class: "comment" }, [
     createElement('p', {}, [
-      createElement('strong',
-        {},
-        ["Current User -"]
-      ),
-      ` ${comment}`]),
+      createElement('strong', {}, ["Current User -"]),
+      ` ${comment}`
+    ]),
   ]);
 }
 
@@ -121,17 +155,34 @@ function createCommentElement(comment) {
  * Crea un modulo per aggiungere un commento
  * @param {object} post - I dati del post
  * @param {HTMLElement} commentsList - La lista dei commenti da aggiornare
+ * @param {HTMLElement} expandCommentsButton - Pulsante per espandere i commenti
  * @returns {HTMLElement} - Il modulo HTML per aggiungere commenti
  */
-function createCommentForm(post, commentsList) {
+function createCommentForm(post, commentsList, expandCommentsButton) {
   const textarea = createElement("textarea", {
     placeholder: "Scrivi un commento...",
     class: "comment-input",
+    id: "textarea-comment",
+    "aria-labelledby": "comment-label",
+    "aria-required": "true"
   });
-  const button = createElement("button", { class: "comment-submit" }, ["Invia"]);
+
+  const emptyComment = commentsList.querySelector(".comment-empty");
+
+  const button = createElement("button", {
+    class: "submit-button",
+    id: "submit-comment",
+    "aria-label": "Submit your comment"
+  }, ["Invia"]);
 
   button.addEventListener("click", () => {
     const commentText = textarea.value.trim();
+
+    if (emptyComment && commentText) {
+      expandCommentsButton.style.opacity = "1";
+      emptyComment.remove();
+    }
+
     if (commentText) {
       post.comments.push(commentText); // Aggiorna i dati del post
       const newComment = createCommentElement(commentText);
@@ -161,51 +212,4 @@ function triggerCanvasAnimation(canvas, ctx) {
 
       if (bubble.alpha > 0) {
         ctx.beginPath();
-        ctx.arc(bubble.x, bubble.y, bubble.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${bubble.color.r}, ${bubble.color.g}, ${bubble.color.b}, ${bubble.alpha})`;
-        ctx.fill();
-        ctx.closePath();
-      }
-    });
-
-    // Rimuovi bolle "morte"
-    bubbles = bubbles.filter(b => b.alpha > 0);
-
-    if (bubbles.length > 0) {
-      requestAnimationFrame(animate);
-    }
-  }
-
-  animate();
-}
-
-/**
- * Genera bolle per l'animazione
- * @param {HTMLCanvasElement} canvas - Il canvas dove disegnare
- * @returns {Array} - Array di oggetti bolle
- */
-function generateBubbles(canvas) {
-  const bubbles = [];
-  const numBubbles = 15;
-
-  canvas.width = canvas.offsetWidth;
-  canvas.height = canvas.offsetHeight;
-
-  for (let i = 0; i < numBubbles; i++) {
-    bubbles.push({
-      x: canvas.width / 2 + (Math.random() - 0.5) * 100,
-      y: canvas.height / 2,
-      size: Math.random() * 10 + 5,
-      speedY: Math.random() * 2 + 1,
-      speedX: (Math.random() - 0.5) * 2,
-      alpha: 1,
-      color: {
-        r: Math.floor(Math.random() * 256),
-        g: Math.floor(Math.random() * 256),
-        b: Math.floor(Math.random() * 256),
-      },
-    });
-  }
-
-  return bubbles;
-}
+        ctx.arc(bubble
