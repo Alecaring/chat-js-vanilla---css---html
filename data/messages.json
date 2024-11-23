@@ -1,0 +1,232 @@
+[
+    {
+        "id": 1,
+        "name": "Alice Johnson",
+        "lastMessage": "Let's catch up soon!",
+        "messages": [
+            {
+                "sender": "Alice Johnson",
+                "time": "9:00 AM",
+                "content": "Hey, how have you been?"
+            },
+            {
+                "sender": "You",
+                "time": "9:05 AM",
+                "content": "I'm good, busy with work. You?"
+            },
+            {
+                "sender": "Alice Johnson",
+                "time": "9:07 AM",
+                "content": "Same here! We should grab coffee soon."
+            },
+            {
+                "sender": "You",
+                "time": "9:10 AM",
+                "content": "Sure, let me know when you're free."
+            },
+            {
+                "sender": "Alice Johnson",
+                "time": "9:15 AM",
+                "content": "This weekend?"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Bob Smith",
+        "lastMessage": "Check out this article.",
+        "messages": [
+            {
+                "sender": "Bob Smith",
+                "time": "8:00 AM",
+                "content": "Morning! Did you see the latest news?"
+            },
+            {
+                "sender": "You",
+                "time": "8:10 AM",
+                "content": "Not yet, what's happening?"
+            },
+            {
+                "sender": "Bob Smith",
+                "time": "8:15 AM",
+                "content": "Sent you an article. It's about AI trends."
+            },
+            {
+                "sender": "You",
+                "time": "8:20 AM",
+                "content": "Thanks, I'll read it."
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Carla Mendes",
+        "lastMessage": "Don't forget to pack sunscreen!",
+        "messages": [
+            {
+                "sender": "Carla Mendes",
+                "time": "6:00 PM",
+                "content": "Are you excited about the trip?"
+            },
+            {
+                "sender": "You",
+                "time": "6:05 PM",
+                "content": "Yes! Got any packing tips?"
+            },
+            {
+                "sender": "Carla Mendes",
+                "time": "6:10 PM",
+                "content": "Pack light but don't forget sunscreen!"
+            },
+            {
+                "sender": "You",
+                "time": "6:15 PM",
+                "content": "Good call, thanks!"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Daniel Green",
+        "lastMessage": "Let me know your thoughts.",
+        "messages": [
+            {
+                "sender": "Daniel Green",
+                "time": "2:00 PM",
+                "content": "Hey, can you review the project proposal?"
+            },
+            {
+                "sender": "You",
+                "time": "2:05 PM",
+                "content": "Sure, I'll take a look this evening."
+            },
+            {
+                "sender": "Daniel Green",
+                "time": "2:10 PM",
+                "content": "Thanks, I appreciate it."
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Evelyn White",
+        "lastMessage": "It was hilarious!",
+        "messages": [
+            {
+                "sender": "Evelyn White",
+                "time": "10:00 AM",
+                "content": "Have you seen that new comedy show?"
+            },
+            {
+                "sender": "You",
+                "time": "10:05 AM",
+                "content": "Not yet, is it good?"
+            },
+            {
+                "sender": "Evelyn White",
+                "time": "10:10 AM",
+                "content": "It's hilarious! You have to watch it."
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Fred Nolan",
+        "lastMessage": "See you at the gym.",
+        "messages": [
+            {
+                "sender": "Fred Nolan",
+                "time": "7:00 AM",
+                "content": "Are you coming to the gym today?"
+            },
+            {
+                "sender": "You",
+                "time": "7:05 AM",
+                "content": "Yeah, I'll be there at 8."
+            },
+            {
+                "sender": "Fred Nolan",
+                "time": "7:10 AM",
+                "content": "Great! Let's do a strength session."
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Grace Lee",
+        "lastMessage": "Happy birthday!",
+        "messages": [
+            {
+                "sender": "Grace Lee",
+                "time": "12:00 PM",
+                "content": "Happy birthday! Hope you have a great day!"
+            },
+            {
+                "sender": "You",
+                "time": "12:05 PM",
+                "content": "Thank you, Grace! That's so kind of you."
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Hank Miller",
+        "lastMessage": "I'll bring snacks.",
+        "messages": [
+            {
+                "sender": "Hank Miller",
+                "time": "5:00 PM",
+                "content": "Movie night at my place?"
+            },
+            {
+                "sender": "You",
+                "time": "5:10 PM",
+                "content": "Sounds fun! What should I bring?"
+            },
+            {
+                "sender": "Hank Miller",
+                "time": "5:15 PM",
+                "content": "Just yourself. I'll bring snacks."
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "name": "Isla Brown",
+        "lastMessage": "Let\u2019s plan for Saturday.",
+        "messages": [
+            {
+                "sender": "Isla Brown",
+                "time": "3:00 PM",
+                "content": "Want to go hiking this weekend?"
+            },
+            {
+                "sender": "You",
+                "time": "3:10 PM",
+                "content": "Yes! Saturday works for me."
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "name": "Jack Davis",
+        "lastMessage": "Let's celebrate soon!",
+        "messages": [
+            {
+                "sender": "Jack Davis",
+                "time": "4:00 PM",
+                "content": "Congrats on your promotion!"
+            },
+            {
+                "sender": "You",
+                "time": "4:10 PM",
+                "content": "Thanks, Jack! Means a lot."
+            },
+            {
+                "sender": "Jack Davis",
+                "time": "4:15 PM",
+                "content": "We should celebrate soon!"
+            }
+        ]
+    }
+]

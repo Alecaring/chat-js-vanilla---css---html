@@ -1,0 +1,108 @@
+#mainEmail {
+    width: 100%;
+    height: 93vh;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.search-contact-section {
+    width: 100%;
+    height: 93vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Contenitore di ricerca */
+.search-container {
+    margin-top: 6vh;
+    width: 90%;
+    border-radius: 1rem;
+    box-shadow: 8px 8px 16px #d1d1d1, -8px -8px 16px #ffffff;
+    padding: 2rem
+}
+
+
+/* Input di ricerca */
+.search-input {
+    width: 100%;
+    padding: 16px;
+    border-radius: 50px;
+    font-size: 16px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: inset 8px 8px 16px #d1d1d1, inset -8px -8px 16px #ffffff;
+
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+/* Lista di amici */
+.friends-list {
+    list-style: none;
+    padding: 0;
+    max-height: 65vh;
+    overflow-y: auto;
+    margin: 20px auto;
+    width: 97%;
+    padding: 2rem;
+    border-radius: 2rem;
+    box-shadow: inset 8px 8px 16px #d1d1d1, inset -8px -8px 16px #ffffff;
+
+}
+
+/* Elemento della lista di amici */
+.friend {
+    padding: 12px 20px;
+    font-size: 18px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.friend:hover {
+    background-color: #e6f3ff;
+    transform: translateX(1px);
+}
+
+/* Aggiungi un'icona di ricerca accanto al nome */
+.friend .icon {
+    font-size: 20px;
+    color: #0072ff;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.friend .icon:hover {
+    transform: rotate(360deg);
+}
+
+/* Animazione di apparizione */
+.friend {
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+}
+
+.friend:nth-child(odd) {
+    animation-delay: 0.1s;
+}
+
+.friend:nth-child(even) {
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeIn {
+    100% {
+        opacity: 1;
+    }
+}
