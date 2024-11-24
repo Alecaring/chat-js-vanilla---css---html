@@ -3,7 +3,7 @@
         "id": 1,
         "author": "Luigi Verdi",
         "content": "hello Italian",
-        "image": "assets/images/1.webp",
+        "image": "assets/images/posts/1.webp",
         "liked": false,
         "comments": ["hwwww"]
     },
@@ -11,7 +11,7 @@
         "id": 2,
         "author": "Mario Bianchi",
         "content": "hello Franch",
-        "image": "assets/images/2.webp",
+        "image": "assets/images/posts/2.webp",
         "liked": false,
         "comments": []
     },
@@ -19,7 +19,7 @@
         "id": 1,
         "author": "Valerio Rossi",
         "content": "hello German",
-        "image": "assets/images/3.webp",
+        "image": "assets/images/posts/3.webp",
         "liked": false,
         "comments": []
     },
@@ -27,7 +27,7 @@
         "id": 1,
         "author": "Valerio Rossi",
         "content": "hello German",
-        "image": "assets/images/4.webp",
+        "image": "assets/images/posts/4.webp",
         "liked": false,
         "comments": []
     },
@@ -35,7 +35,7 @@
         "id": 1,
         "author": "Valerio Rossi",
         "content": "hello German",
-        "image": "assets/images/5.webp",
+        "image": "assets/images/posts/5.webp",
         "liked": false,
         "comments": []
     }

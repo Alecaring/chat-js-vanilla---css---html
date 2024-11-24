@@ -51,4 +51,11 @@ export function renderConversationDetails(container, conversation) {
         if (input.value.trim() === "") return; // Evita messaggi vuoti
         conversation.messages.push(newMessage);
 
-        // Ricarica i dettagli della 
+        // Ricarica i dettagli della conversazione
+        renderConversationDetails(container, conversation);
+    });
+
+    inputContainer.appendChild(input);
+    inputContainer.appendChild(button);
+    container.appendChild(inputContainer);
+}

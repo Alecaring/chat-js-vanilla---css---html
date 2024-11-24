@@ -212,4 +212,50 @@ function triggerCanvasAnimation(canvas, ctx) {
 
       if (bubble.alpha > 0) {
         ctx.beginPath();
-        ctx.arc(bubble
+        ctx.arc(bubble.x, bubble.y, bubble.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${bubble.color.r}, ${bubble.color.g}, ${bubble.color.b}, ${bubble.alpha})`;
+        ctx.fill();
+        ctx.closePath();
+      }
+    });
+
+    bubbles = bubbles.filter(b => b.alpha > 0);
+
+    if (bubbles.length > 0) {
+      requestAnimationFrame(animate);
+    }
+  }
+
+  animate();
+}
+
+/**
+ * Genera bolle per l'animazione
+ * @param {HTMLCanvasElement} canvas - Il canvas dove disegnare
+ * @returns {Array} - Array di oggetti bolle
+ */
+function generateBubbles(canvas) {
+  const bubbles = [];
+  const numBubbles = 15;
+
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+
+  for (let i = 0; i < numBubbles; i++) {
+    bubbles.push({
+      x: canvas.width / 2 + (Math.random() - 0.5) * 100,
+      y: canvas.height - 50,
+      size: Math.random() * 10 + 5,
+      speedY: Math.random() * 2 + 1,
+      speedX: (Math.random() - 0.5) * 2,
+      alpha: 1,
+      color: {
+        r: Math.floor(Math.random() * 256),
+        g: Math.floor(Math.random() * 256),
+        b: Math.floor(Math.random() * 256),
+      },
+    });
+  }
+
+  return bubbles;
+}

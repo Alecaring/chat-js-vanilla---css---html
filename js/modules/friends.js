@@ -63,4 +63,10 @@ console.log(friends);
         const filteredFriends = friends.filter(friend =>
             friend.name.toLowerCase().includes(searchQuery)
         );
-        // Aggio
+        // Aggiorna la lista con i risultati filtrati
+        renderFriendList(filteredFriends);
+    });
+
+    // Render iniziale della lista di amici
+    renderFriendList(friends);
+});

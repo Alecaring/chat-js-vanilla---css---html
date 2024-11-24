@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         createElement('div',
             { class: "container-image" }, [
-            createElement('img', { src: "https://www.gstatic.com/travel-frontend/animation/hero/flights_nc_4.svg" }, []),
+            createElement('img', { src: "assets/svg/mountain-view.svg" }, []),
             createElement('div',
                 { class: "container-dots" },
                 [
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             src: conversation.avatar || "https://via.placeholder.com/50",
                             alt: `${conversation.name} Avatar`
                         }),
-                        createElement('div', {}, [
+                        createElement('div', {class: "inner-conversation-cell-txt"}, [
                             createElement('h3', {}, [conversation.name]),
                             createElement('p', {}, [conversation.lastMessage]),
                         ])
